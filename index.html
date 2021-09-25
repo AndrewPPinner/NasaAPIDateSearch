@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA API</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Space Images by Date</h1>
+        <input @keyup.enter="dateSearch(date)" type="date" v-model='date' id="date"
+       min="1995-06-29" max="2040-12-29">
+       <button @click='dateSearch(date)'>Search Image</button>
+    </div>    
+    <script src="app.js"></script>
+</body>
