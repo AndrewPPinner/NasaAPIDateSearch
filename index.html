@@ -12,9 +12,15 @@
 <body>
     <div id="app">
         <h1>Space Images by Date</h1>
-        <input @keyup.enter="dateSearch(date)" type="date" v-model='date' id="date"
-       min="1995-06-29" max="2040-12-29">
+        <input @keyup.enter="dateSearch(date)" type="date" required v-model='date' id="date"
+       min="1995-06-29" max="2040-12-29"/>
+       <br>
        <button @click='dateSearch(date)'>Search Image</button>
+       <h2>{{ title }}</h2>
+       <p>{{ imgDate }}</p>
+       <img v-show='media === "image"' v-bind:src=img>
+       <iframe v-show='media === "video"' v-bind:src=img width="650" height="400"></iframe>
+       <p> {{ explanation }}</p>
     </div>    
     <script src="app.js"></script>
 </body>
