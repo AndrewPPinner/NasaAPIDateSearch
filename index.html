@@ -24,19 +24,25 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">Resume</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Other Projects</a>
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
     <div id="app">
-        <input @keyup.enter="dateSearch(date)" type="date" required v-model='date' id="date"
+        <input @keyup.enter="dateSearch(date); spinnerToggle()" type="date" required v-model='date' id="date"
        min="1995-06-29" max="2040-12-29"/>
        <br>
-       <button @click='dateSearch(date)'>Search Image</button>
+       <button @click='dateSearch(date); spinnerToggle(spinner)'>Search Image</button>
        <h2 class="fs-1">{{ title }}</h2>
        <p>{{ imgDate }}</p>
-       <img class="mw-100" v-show='media === "image"' v-bind:src=img>
-       <iframe class="mw-100" v-show='media === "video"' v-bind:src=img width="650" height="400"></iframe>
+       <div v-show='spinner' class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+       <img class="mw-100" v-show='media === "image" && spinner === false' v-bind:src=img>
+       <iframe class="mw-100" v-show='media === "video" && spinner === false' v-bind:src=img width="650" height="400"></iframe>
        <p> {{ explanation }}</p>
     </div>    
     <script src="app.js"></script>
