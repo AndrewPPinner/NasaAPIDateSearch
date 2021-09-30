@@ -32,7 +32,7 @@
             </div>
           </nav>
     <div id="app">
-        <input @keyup.enter="dateSearch(date); spinnerToggle()" type="date" required v-model='date' id="date"
+        <input @keyup.enter="dateSearch(date); spinnerToggle(spinner)" type="date" required v-model='date' id="date"
        min="1995-06-29" max="2040-12-29"/>
        <br>
        <button @click='dateSearch(date); spinnerToggle(spinner)'>Search Image</button>
